@@ -1,0 +1,10 @@
+<div class="repos-search-results" *ngIf="repos.length">
+    <div *ngFor="let repo of repos; trackBy: trackRepo">
+        <app-repo-card
+            [repo]="repo"
+            [useRemoveButton]="true"></app-repo-card>
+    </div>
+</div>
+<app-repos-text-card
+    text="You don't have saved repositories"
+    *ngIf="!repos.length"></app-repos-text-card>

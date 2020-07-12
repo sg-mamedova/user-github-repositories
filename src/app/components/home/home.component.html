@@ -1,0 +1,29 @@
+<mat-toolbar ngClass="main-toolbar">
+    <mat-error *ngIf="searchInvalid">{{ errorMesssage }}</mat-error>
+
+    <form class="search-form">
+        <mat-form-field class="w-100"
+            [ngClass]="{'mat-form-field-invalid': searchInvalid }">
+            <input placeholder="Search"
+                matInput
+                name="search"
+                #search>
+        </mat-form-field>
+    </form>
+</mat-toolbar>
+
+<div class="search-results" *ngIf="users.length">
+    <div *ngFor="let user of users; trackBy: trackUser">
+        <div class="user-card"
+            [routerLink]="['repos', user.login]">
+            <div class="user-avatar">
+                <img src="{{ user.avatar_url}}">
+            </div>
+            <span class="user-login">{{ user.login }}</span>
+        </div>
+    </div>
+</div>
+
+<app-repos-text-card
+    text="Users not found"
+    *ngIf="!users.length && search.value"></app-repos-text-card>

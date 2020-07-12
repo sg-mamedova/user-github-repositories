@@ -1,0 +1,13 @@
+<h1 mat-dialog-title>{{ repo.name }}</h1>
+<div mat-dialog-content>
+    <p *ngIf="repo.description">{{ repo.description }}</p>
+    <p>Language: <strong>{{ repo.language }}</strong></p>
+    <p class="has-issues">
+        <span>Has issues?</span>
+        <mat-icon>{{ repo.has_issues ? 'done' : 'close' }}</mat-icon>
+    </p>
+    <p><a href="{{ repo.html_url }}" target="_blank">{{ repo.html_url }}</a></p>
+</div>
+<div mat-dialog-actions align="end">
+    <button mat-raised-button color="primary" (click)="close()">Ok</button>
+</div>

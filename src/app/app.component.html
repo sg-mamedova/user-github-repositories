@@ -1,0 +1,11 @@
+<router-outlet></router-outlet>
+<button
+    mat-button
+    mat-icon-button
+    aria-label="Favorite repositories"
+    color="warn" class="btn-float"
+    matTooltip="List of favorite repositories"
+    routerLink="saved"
+    *ngIf="getSavedRepos()">
+    <mat-icon>favorite</mat-icon>
+</button>

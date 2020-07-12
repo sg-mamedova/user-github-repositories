@@ -1,0 +1,11 @@
+<div class="repos-search-results" *ngIf="repos.length">
+    <ng-container>
+        <div *ngFor="let repo of repos; trackBy: trackRepo">
+            <app-repo-card [repo]="repo"></app-repo-card>
+        </div>
+    </ng-container>
+
+    <app-repos-text-card
+        text="Repositories not found"
+        *ngIf="!repos.length && loaded"></app-repos-text-card>
+</div>

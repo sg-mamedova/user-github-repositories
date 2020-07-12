@@ -1,0 +1,21 @@
+<div class="repo-card">
+    <div class="repo-preview" (click)="openRepoInfo(repo)">
+        <span class="repo-name">{{ repo.name }}</span>
+        <p class="repo-description"
+            *ngIf="repo.description">
+            {{ repo.description }}
+        </p>
+    </div>
+    <a class="repo-btn"
+        [matTooltip]="repo.saved ? 'Remove repository from favorites list' : 'Add repository to favorites list'"
+        (click)="toggleRepo(repo)"
+        *ngIf="!useRemoveButton">
+        <mat-icon>{{ repo.saved ? 'star' : 'star_border' }}</mat-icon>
+    </a>
+    <a class="repo-btn"
+        matTooltip="Remove repository from favorites list"
+        (click)="removeRepo(repo)"
+        *ngIf="useRemoveButton">
+        <mat-icon>star</mat-icon>
+    </a>
+</div>

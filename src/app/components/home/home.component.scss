@@ -1,0 +1,66 @@
+
+.main-toolbar {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.mat-toolbar-single-row {
+    height: 120px;
+    padding: 24px 0 0 24px;
+}
+
+.search-form {
+    width: 96%;
+}
+
+.search-results {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 100%;
+    padding: 24px 0;
+}
+
+.user-card {
+    cursor: pointer;
+    border: 1px solid rgba(0,0,0,0.8);
+    border-radius: 8px;
+    background-color: #ffffff;
+    margin: 24px auto;
+    padding: 24px;
+    width: 75%;
+}
+
+.user-avatar {
+    border-radius: 50%;
+    display: inline-block;
+    height: 100px;
+    overflow: hidden;
+    vertical-align: middle;
+    width: 100px;
+
+    img {
+        width: 100%;
+        height: auto;
+    }
+}
+
+.user-login {
+    font-size: 24px;
+    padding: 24px 24px 24px 48px;
+    position: relative;
+    text-transform: uppercase;
+
+    &::before {
+        content: '';
+        display: block;
+        width: 1px;
+        height: 50%;
+        background-color: #000;
+        position: absolute;
+        left: 24px;
+        top: 20px;
+    }
+}
