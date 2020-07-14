@@ -16,7 +16,7 @@ export class ReposSavedComponent implements OnInit {
 
     constructor(
         private dialog: MatDialog,
-        private localStorageSerivce: LocalStorageService,
+        private localStorageService: LocalStorageService,
     ) { }
 
     openRepoInfo(repo): void {
@@ -36,8 +36,8 @@ export class ReposSavedComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.localStorageSerivce.localStorageChangedState.subscribe(() => {
-            this.repos = this.localStorageSerivce.getSavedRepos();
+        this.localStorageService.localStorageChangedState.subscribe(() => {
+            this.repos = this.localStorageService.getSavedRepos();
         });
     }
 }

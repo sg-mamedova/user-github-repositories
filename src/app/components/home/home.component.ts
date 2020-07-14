@@ -11,7 +11,7 @@ import { UsersService } from 'src/app/services/users.service';
     styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit, OnDestroy {
-    errorMesssage: string = '';
+    errorMessage: string = '';
     searchInvalid: boolean = false;
     subscriptions: Subscription = new Subscription();
     users: any = [];
@@ -19,18 +19,18 @@ export class HomeComponent implements OnInit, OnDestroy {
     @ViewChild('search') searchInput: ElementRef;
 
     constructor(
-        private usersSerivce: UsersService,
+        private usersService: UsersService,
     ) { }
 
     searchUsers(query: string) {
         this.subscriptions.add(
-            this.usersSerivce.searchUsers(query).subscribe(
+            this.usersService.searchUsers(query).subscribe(
                 (value) => {
                     this.users = value.items;
                 },
                 (error) => {
                     this.searchInvalid = true;
-                    this.errorMesssage = error.message;
+                    this.errorMessage = error.message;
                 }
             ),
         );
@@ -42,7 +42,7 @@ export class HomeComponent implements OnInit, OnDestroy {
 
     ngOnInit(): void {
         this.subscriptions.add(
-            this.usersSerivce.getUsers().subscribe(
+            this.usersService.getUsers().subscribe(
                 (value) => {
                     this.users = value;
                 },

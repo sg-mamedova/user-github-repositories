@@ -16,7 +16,7 @@ export class RepoCardComponent {
 
     constructor(
         private dialog: MatDialog,
-        private localStorageSerivce: LocalStorageService,
+        private localStorageService: LocalStorageService,
     ) { }
 
     isRepoSaved(repo): boolean {
@@ -36,16 +36,16 @@ export class RepoCardComponent {
     }
 
     removeRepo(repo) {
-        this.localStorageSerivce.removeFromLocalStorage(repo);
+        this.localStorageService.removeFromLocalStorage(repo);
     }
 
     toggleRepo(repo) {
         if (this.isRepoSaved(repo)) {
             repo.saved = false;
-            this.localStorageSerivce.removeFromLocalStorage(repo);
+            this.localStorageService.removeFromLocalStorage(repo);
         } else {
             repo.saved = true;
-            this.localStorageSerivce.storeOnLocalStorage(repo);
+            this.localStorageService.storeOnLocalStorage(repo);
         }
     }
 }

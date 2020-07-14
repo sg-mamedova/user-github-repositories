@@ -10,10 +10,10 @@ export class AppComponent {
     isRepoSaved: boolean = false;
 
     constructor(
-        private localStorageSerivce: LocalStorageService,
+        private localStorageService: LocalStorageService,
     ) { }
 
     getSavedRepos(): any {
-        return this.localStorageSerivce.getSavedRepos().length;
+        return this.localStorageService.getSavedRepos().length;
     }
 }

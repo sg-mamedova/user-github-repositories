@@ -10,7 +10,7 @@ export class UsersService {
         private httpClient: HttpClient,
     ) { }
 
-    getPepos(login: string): Observable<any> {
+    getRepos(login: string): Observable<any> {
         const reposUrl: string = `https://api.github.com/users/${login}/repos`;
 
         return this.httpClient.get(reposUrl);

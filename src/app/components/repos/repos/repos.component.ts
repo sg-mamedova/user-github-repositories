@@ -23,8 +23,8 @@ export class ReposComponent implements OnInit, OnDestroy {
     constructor(
         private dialog: MatDialog,
         private route: ActivatedRoute,
-        private usersSerivce: UsersService,
-        private localStorageSerivce: LocalStorageService,
+        private usersService: UsersService,
+        private localStorageService: LocalStorageService,
     ) {
         this.subscriptions.add(
             this.route.params.subscribe((params) => {
@@ -51,9 +51,9 @@ export class ReposComponent implements OnInit, OnDestroy {
 
     ngOnInit() {
         this.subscriptions.add(
-            this.usersSerivce.getPepos(this.login).subscribe(
+            this.usersService.getRepos(this.login).subscribe(
                 (repos) => {
-                    const savedRepos = this.localStorageSerivce.getSavedRepos()
+                    const savedRepos = this.localStorageService.getSavedRepos()
                     this.repos = repos.map((repo) => {
                         repo.saved = !!savedRepos[repo.id];
                         return repo;
